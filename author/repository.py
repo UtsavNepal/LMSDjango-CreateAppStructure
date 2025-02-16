@@ -11,4 +11,4 @@ class AuthorRepository:
 
     @staticmethod
     def create_author(name, bio):
-        return Author.objects.create(Name=name, Bio=bio)
+        return Author.objects.create(Author_Name=name, Bio=bio)

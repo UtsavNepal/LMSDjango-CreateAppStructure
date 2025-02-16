@@ -11,7 +11,7 @@ class Transaction(models.Model):
 
     transaction_id = models.AutoField(primary_key=True)
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
-    user_id = models.CharField(max_length=3)  # Removed unique=True constraint
+    user_id = models.CharField(max_length=3)
     book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
     transaction_type = models.CharField(max_length=10, choices=TRANSACTION_TYPE_CHOICES)
     date_of_borrowed = models.DateField(auto_now_add=True)
