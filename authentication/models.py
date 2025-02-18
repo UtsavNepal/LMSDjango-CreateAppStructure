@@ -14,7 +14,7 @@ class UserManager(BaseUserManager):
         email = self.normalize_email(email)
         user = self.model(username=username, email=email)
         user.set_password(password)
-        user.access_token = uuid.uuid4().hex  # Generate a unique token
+        user.access_token = uuid.uuid4().hex  
         user.save(using=self._db)
         return user
 

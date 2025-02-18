@@ -3,13 +3,13 @@ from rest_framework import generics,serializers
 from book.repository import BookRepository
 from .services import BookService
 from .serializers import BookSerializer
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework.exceptions import ValidationError
 
 class BookListView(generics.ListCreateAPIView):
     queryset = BookRepository.get_all_books()
     serializer_class = BookSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         book_data = self.request.data
@@ -30,7 +30,7 @@ class BookListView(generics.ListCreateAPIView):
 
 class BookDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BookSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return BookService.get_all_books()

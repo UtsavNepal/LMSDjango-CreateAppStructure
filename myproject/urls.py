@@ -10,4 +10,5 @@ urlpatterns = [
     path('api/', include('book.urls')),
     path('api/', include('student.urls')),
     path('api/', include('transactions.urls')),
+    path('api/', include('dashboard.urls')),
 ]
